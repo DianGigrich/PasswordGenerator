@@ -10,49 +10,56 @@ var special = confirm("Would you like to use Special Characters in your password
 var Upper = confirm("Would you like to use Uppercase letters?")
 var Lower = confirm("Would you like to use Lowercase letters?")
 
+const alphabet = "abcdefghijklmnopqrstuvwxyz"
+const numbers = "0123456789"
+const symbol = "~!@#$%^&*"
+const Upperalphabet = "ABCDEFJGIJKLMNOPQRSTUVWXYZ"
 
+function generatePassword() {
+  while (i<=Chosenlength.length) {
 if (letter) {
-    function RandomLetter() {
-      const alphabet = "abcdefghijklmnopqrstuvwxyz"
-    
+    // function RandomLetter() {
+          
       return alphabet[Math.floor(Math.random() * alphabet.length)]
     }
-}
 
 if (number) {
-    function RandomNumber() {
-      const numbers = "0123456789"
-    
+    // function RandomNumber() {
+          
       return numbers[Math.floor(Math.random() * numbers.length)]
   }
-}
 
 if (special) {
-  function RandomSpecial() {
-    const numbers = "0123456789"
-
+  // function RandomSpecial() {
+    
     return numbers[Math.floor(Math.random() * numbers.length)]
   }
-}
 
-function generatePassword {
-  for (i=0, i<=Chosenlength.length; i++)
-  
-
+i++
 }
+}
+// console.log(generatePassword.join(''))
+
+
+  // function generatePassword {
+  //   for (i=0, i<=Chosenlength.length; i++)
+    
+  // }
 // charAt() is a method that returns the character from the specified index.
 
 // Characters in a string are indexed from left to right. The index of the first character is 0, and the index of the last character in a string, called stringName, is stringName.length – 1.
+// .map
 
+// .join('')
 
-function generatePassword {
-  for (i=0; i<=13; i++) {
-    var mix = characters.charAt(Math.floor(Math.random() * length));        
-    var newString = results += mix;
-    }
+// function generatePassword {
+//   for (i=0; i<=13; i++) {
+//     var mix = characters.charAt(Math.floor(Math.random() * length));        
+//     var newString = results += mix;
+//     }
   
-  return: password;
-}
+//   return: password;
+// }
 
 
 
@@ -60,13 +67,13 @@ function generatePassword {
 
 // Write password to the #password input
 
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
 // }
 
 // // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
