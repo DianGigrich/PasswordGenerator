@@ -1,56 +1,58 @@
 // Assignment Code
 
-//The Document method querySelector() returns the first Element within the document that matches the specified selector, or group of selectors
-var generateBtn = document.querySelector("#generate");
 
+
+function ChooseLength(){
 var Chosenlength = prompt("How long would you like your password? Between 8-128")
+if (Chosenlength < 7 || Chosenlength > 129) {
+  alert("Enter valid length")
+  ChooseLength()
+}
+}
+ChooseLength()
+
 var letter = confirm("Would you like to use Letters in your password? OK means yes, Cancel means No.")
 var number = confirm("Would you like to use Numbers in your password?")
 var special = confirm("Would you like to use Special Characters in your password?")
 var Upper = confirm("Would you like to use Uppercase letters?")
 var Lower = confirm("Would you like to use Lowercase letters?")
 
-const alphabet = "abcdefghijklmnopqrstuvwxyz"
+const lowerAlph = "abcdefghijklmnopqrstuvwxyz"
 const numbers = "0123456789"
 const symbol = "~!@#$%^&*"
-const Upperalphabet = "ABCDEFJGIJKLMNOPQRSTUVWXYZ"
+const upperAlph = "ABCDEFJGIJKLMNOPQRSTUVWXYZ"
+
+var pool = [' ']
+
+var result = ['']
 
 function generatePassword() {
-  while (i<=Chosenlength.length) {
-if (letter) {
-    // function RandomLetter() {
-          
-      return alphabet[Math.floor(Math.random() * alphabet.length)]
+    // add lowercase alphabet to pool array
+if (letter && Lower) {
+    pool.push(lowerAlph)
     }
-
+    // add uppercase alphabet to pool array
+if (letter && Upper) {
+    pool.push(upperAlph)
+}
+    // add numbers to pool array 
 if (number) {
-    // function RandomNumber() {
-          
-      return numbers[Math.floor(Math.random() * numbers.length)]
+    pool.push(numbers)
   }
-
+    //add special characters to pool array 
 if (special) {
-  // function RandomSpecial() {
-    
-    return numbers[Math.floor(Math.random() * numbers.length)]
+    pool.push(symbol)
   }
 
-i++
+for (i=0; i<=ChosenLength.length; i++) {
+    pool[Math.floor(Math.random() * pool.length)
 }
-}
-// console.log(generatePassword.join(''))
 
 
-  // function generatePassword {
-  //   for (i=0, i<=Chosenlength.length; i++)
-    
+
+
   // }
 // charAt() is a method that returns the character from the specified index.
-
-// Characters in a string are indexed from left to right. The index of the first character is 0, and the index of the last character in a string, called stringName, is stringName.length – 1.
-// .map
-
-// .join('')
 
 // function generatePassword {
 //   for (i=0; i<=13; i++) {
@@ -64,7 +66,7 @@ i++
 
 
 
-
+var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 
 function writePassword() {
@@ -73,7 +75,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-// }
+// // }
 
-// // Add event listener to generate button
+// // // // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
