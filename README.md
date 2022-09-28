@@ -1,4 +1,9 @@
 # 03 JavaScript: Password Generator
+Acquire information from prompts regarding password. 
+i need to know a length from 8-128.
+lowercase, uppercase, number, special character
+at least one item should be picked from chosen types
+password should be an Alert or generated to the page
 
 ## Your Task
 
