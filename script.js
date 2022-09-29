@@ -15,9 +15,12 @@ function generatePassword() {
   // RESULTS!
   var result = " "
 
-  // choose length and test
+  
   var chosenLength;
+  var Upper;
+  var Lower;
 
+  // choose length and test
   chosenLength = prompt("How long would you like your password? Between 8-128")
 
   chosenLength = (parseInt(chosenLength) - 1)
@@ -34,12 +37,16 @@ function generatePassword() {
   console.log(chosenLength)
 
 
-  // user prompts
+  // choose letter
   var letter = confirm("Would you like to use Letters in your password?")
+  if (letter) {
+    Upper = confirm("Would you like to use Uppercase letters?")
+    Lower = confirm("Would you like to use Lowercase letters?")
+  }
+  
   var number = confirm("Would you like to use Numbers in your password?")
   var special = confirm("Would you like to use Special Characters in your password?")
-  var Upper = confirm("Would you like to use Uppercase letters?")
-  var Lower = confirm("Would you like to use Lowercase letters?")
+
   var secure = confirm("Would you like your password to be secure? (Overrides previous choices)")
 
 
@@ -57,7 +64,7 @@ function generatePassword() {
     console.log(pool)
   }
 
-  if (letter && Upper == false && Lower == false) {
+  if (Upper == false && Lower == false) {
     alert("Enter valid answer. You chose letters without Uppercase or Lowercase!")
     generatePassword()
   }
