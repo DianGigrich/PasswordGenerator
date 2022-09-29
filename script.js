@@ -8,28 +8,28 @@ const numbers = "0123456789"
 const symbol = "~!@#$%^&*"
 const upperAlph = "ABCDEFJGIJKLMNOPQRSTUVWXYZ"
 
-// RESULTS!
-// var result = " "
+
 
 function generatePassword() {
 
+  // RESULTS!
   var result = " "
 
   // choose length and test
   var chosenLength;
 
   chosenLength = prompt("How long would you like your password? Between 8-128")
-  
-  chosenLength = (parseInt(chosenLength)-1)
 
-  
-    if (chosenLength < 7 || chosenLength > 128) {
-      alert("Enter valid length")
-      generatePassword()
-      
-    } else chosenLength
-    console.log(chosenLength)
-  
+  chosenLength = (parseInt(chosenLength) - 1)
+
+
+  if (chosenLength < 7 || chosenLength > 128) {
+    alert("Enter valid length")
+    generatePassword()
+
+  } else chosenLength
+  console.log(chosenLength)
+
 
   // user prompts
   var letter = confirm("Would you like to use Letters in your password?")
@@ -39,7 +39,7 @@ function generatePassword() {
   var Lower = confirm("Would you like to use Lowercase letters?")
   var Secure = confirm("Would you like your password to be secure? (Overrides previous choices)")
 
- 
+
 
   var pool = ("")
 
