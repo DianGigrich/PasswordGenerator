@@ -1,15 +1,18 @@
 // Assignment Code
 
-
-
-function ChooseLength(){
-var Chosenlength = prompt("How long would you like your password? Between 8-128")
-if (Chosenlength < 7 || Chosenlength > 129) {
-  alert("Enter valid length")
-  ChooseLength()
-}
+var generateBtn = document.querySelector("#generate");
+// choose length and test
+var Chosenlength;
+function ChooseLength() {
+  Chosenlength = prompt("How long would you like your password? Between 8-128")
+  Chosenlength = parseInt(Chosenlength)
+  if (Chosenlength < 7 || Chosenlength > 129) {
+    alert("Enter valid length")
+    ChooseLength()
+  }
 }
 ChooseLength()
+
 
 var letter = confirm("Would you like to use Letters in your password? OK means yes, Cancel means No.")
 var number = confirm("Would you like to use Numbers in your password?")
@@ -22,36 +25,37 @@ const numbers = "0123456789"
 const symbol = "~!@#$%^&*"
 const upperAlph = "ABCDEFJGIJKLMNOPQRSTUVWXYZ"
 
-var pool = [' ']
-
-var result = ['']
-
 function generatePassword() {
-    // add lowercase alphabet to pool array
-if (letter && Lower) {
-    pool.push(lowerAlph)
-    }
-    // add uppercase alphabet to pool array
-if (letter && Upper) {
-    pool.push(upperAlph)
-}
-    // add numbers to pool array 
-if (number) {
-    pool.push(numbers)
+
+  var result = " "
+
+  var pool = " "
+
+  // add lowercase alphabet to pool array
+  if (letter && Lower) {
+    pool = pool + Lower
+    console.log(pool)
+  } 
+  // add uppercase alphabet to pool array
+  if (letter && Upper) {
+    pool = pool + Upper
   }
-    //add special characters to pool array 
-if (special) {
-    pool.push(symbol)
+  // add numbers to pool array 
+  if (number) {
+    pool = pool + number
+  }
+  //add special characters to pool array 
+  if (special) {
+    pool = pool + special
+  }
+console.log(Chosenlength)
+  for (i = 0; i <= Chosenlength; i++) {
+    result = result + pool[Math.floor(Math.random() * pool.length)]
+    console.log(result)
+
   }
 
-for (i=0; i<=ChosenLength.length; i++) {
-    pool[Math.floor(Math.random() * pool.length)
 }
-
-
-
-
-  // }
 // charAt() is a method that returns the character from the specified index.
 
 // function generatePassword {
@@ -59,15 +63,15 @@ for (i=0; i<=ChosenLength.length; i++) {
 //     var mix = characters.charAt(Math.floor(Math.random() * length));        
 //     var newString = results += mix;
 //     }
-  
+
 //   return: password;
 // }
 
 
 
 
-var generateBtn = document.querySelector("#generate");
-// Write password to the #password input
+
+// // Write password to the #password input
 
 function writePassword() {
   var password = generatePassword();
@@ -75,7 +79,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-// // }
+}
 
-// // // // Add event listener to generate button
+//   // // // // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
