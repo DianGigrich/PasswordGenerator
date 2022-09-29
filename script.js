@@ -27,7 +27,10 @@ function generatePassword() {
     alert("Enter valid length")
     generatePassword()
 
-  } else chosenLength
+  } else if (!chosenLength) {
+    alert("Enter valid length")
+    generatePassword()
+  }
   console.log(chosenLength)
 
 
@@ -37,7 +40,7 @@ function generatePassword() {
   var special = confirm("Would you like to use Special Characters in your password?")
   var Upper = confirm("Would you like to use Uppercase letters?")
   var Lower = confirm("Would you like to use Lowercase letters?")
-  var Secure = confirm("Would you like your password to be secure? (Overrides previous choices)")
+  var secure = confirm("Would you like your password to be secure? (Overrides previous choices)")
 
 
 
@@ -53,6 +56,11 @@ function generatePassword() {
     pool = pool + upperAlph
     console.log(pool)
   }
+
+  if (letter && Upper == false && Lower == false) {
+    alert("Enter valid answer. You chose letters without Uppercase or Lowercase!")
+    generatePassword()
+  }
   // add numbers to pool array 
   if (number) {
     pool = pool + numbers
@@ -64,9 +72,15 @@ function generatePassword() {
     console.log(pool)
   }
   //  secure password choice
-  if (Secure) {
+  if (secure) {
     pool = pool + symbol + upperAlph + lowerAlph + numbers
   }
+
+  if (number == false && letter == false && special == false && secure == false) {
+    alert("Inappropriate selection. Start Over")
+    generatePassword()
+  }
+
   console.log(chosenLength)
   for (i = 0; i <= chosenLength; i++) {
     result = result + pool[Math.floor(Math.random() * pool.length)]
