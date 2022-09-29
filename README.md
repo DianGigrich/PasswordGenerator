@@ -12,10 +12,11 @@ The following image shows the web application's appearance and functionality:
 
 https://github.com/DianGigrich/PasswordGenerator
 
+https://diangigrich.github.io/PasswordGenerator/
+
 ## Installation
 
 gitbash, vscode, github
-
 
 ## Usage
 
@@ -23,7 +24,6 @@ Acquire information from prompts regarding password:
 I need to know a length from 8-128,
 lowercase, uppercase, number, special character, or 
 if you want it to be fully secure.
-
 
 ## Credits
 
