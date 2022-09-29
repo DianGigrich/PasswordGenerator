@@ -2,79 +2,80 @@
 
 var generateBtn = document.querySelector("#generate");
 
-
+// catalog
 const lowerAlph = "abcdefghijklmnopqrstuvwxyz"
 const numbers = "0123456789"
 const symbol = "~!@#$%^&*"
 const upperAlph = "ABCDEFJGIJKLMNOPQRSTUVWXYZ"
 
-var result = " "
+// RESULTS!
+// var result = " "
 
 function generatePassword() {
 
+  var result = " "
+
   // choose length and test
-  var Chosenlength;
+  var chosenLength;
 
-  function ChooseLength() {
-    Chosenlength = prompt("How long would you like your password? Between 8-128")
-    Chosenlength = parseInt(Chosenlength)
-    if (Chosenlength < 7 || Chosenlength > 129) {
+  chosenLength = prompt("How long would you like your password? Between 8-128")
+  
+  chosenLength = (parseInt(chosenLength)-1)
+
+  
+    if (chosenLength < 7 || chosenLength > 128) {
       alert("Enter valid length")
-      ChooseLength()
-    }
-  }
-  ChooseLength()
+      generatePassword()
+      
+    } else chosenLength
+    console.log(chosenLength)
+  
 
-
-  var letter = confirm("Would you like to use Letters in your password? OK means yes, Cancel means No.")
+  // user prompts
+  var letter = confirm("Would you like to use Letters in your password?")
   var number = confirm("Would you like to use Numbers in your password?")
   var special = confirm("Would you like to use Special Characters in your password?")
   var Upper = confirm("Would you like to use Uppercase letters?")
   var Lower = confirm("Would you like to use Lowercase letters?")
+  var Secure = confirm("Would you like your password to be secure? (Overrides previous choices)")
 
+ 
 
-  
-
-  var pool = " "
+  var pool = ("")
 
   // add lowercase alphabet to pool array
   if (letter && Lower) {
-    pool = pool + Lower
+    pool = pool + lowerAlph
     console.log(pool)
   }
   // add uppercase alphabet to pool array
   if (letter && Upper) {
-    pool = pool + Upper
+    pool = pool + upperAlph
+    console.log(pool)
   }
   // add numbers to pool array 
   if (number) {
-    pool = pool + number
+    pool = pool + numbers
+    console.log(pool)
   }
   //add special characters to pool array 
   if (special) {
-    pool = pool + special
+    pool = pool + symbol
+    console.log(pool)
   }
-  console.log(Chosenlength)
-  for (i = 0; i <= Chosenlength; i++) {
+  //  secure password choice
+  if (Secure) {
+    pool = pool + symbol + upperAlph + lowerAlph + numbers
+  }
+  console.log(chosenLength)
+  for (i = 0; i <= chosenLength; i++) {
     result = result + pool[Math.floor(Math.random() * pool.length)]
     console.log(result)
 
   }
+  return result
 
 }
-// charAt() is a method that returns the character from the specified index.
-
-// function generatePassword {
-//   for (i=0; i<=13; i++) {
-//     var mix = characters.charAt(Math.floor(Math.random() * length));        
-//     var newString = results += mix;
-//     }
-
-//   return: password;
-// }
-
-
-
 
 
 // // Write password to the #password input
