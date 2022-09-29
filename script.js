@@ -1,33 +1,39 @@
 // Assignment Code
 
 var generateBtn = document.querySelector("#generate");
-// choose length and test
-var Chosenlength;
-function ChooseLength() {
-  Chosenlength = prompt("How long would you like your password? Between 8-128")
-  Chosenlength = parseInt(Chosenlength)
-  if (Chosenlength < 7 || Chosenlength > 129) {
-    alert("Enter valid length")
-    ChooseLength()
-  }
-}
-ChooseLength()
 
-
-var letter = confirm("Would you like to use Letters in your password? OK means yes, Cancel means No.")
-var number = confirm("Would you like to use Numbers in your password?")
-var special = confirm("Would you like to use Special Characters in your password?")
-var Upper = confirm("Would you like to use Uppercase letters?")
-var Lower = confirm("Would you like to use Lowercase letters?")
 
 const lowerAlph = "abcdefghijklmnopqrstuvwxyz"
 const numbers = "0123456789"
 const symbol = "~!@#$%^&*"
 const upperAlph = "ABCDEFJGIJKLMNOPQRSTUVWXYZ"
 
+var result = " "
+
 function generatePassword() {
 
-  var result = " "
+  // choose length and test
+  var Chosenlength;
+
+  function ChooseLength() {
+    Chosenlength = prompt("How long would you like your password? Between 8-128")
+    Chosenlength = parseInt(Chosenlength)
+    if (Chosenlength < 7 || Chosenlength > 129) {
+      alert("Enter valid length")
+      ChooseLength()
+    }
+  }
+  ChooseLength()
+
+
+  var letter = confirm("Would you like to use Letters in your password? OK means yes, Cancel means No.")
+  var number = confirm("Would you like to use Numbers in your password?")
+  var special = confirm("Would you like to use Special Characters in your password?")
+  var Upper = confirm("Would you like to use Uppercase letters?")
+  var Lower = confirm("Would you like to use Lowercase letters?")
+
+
+  
 
   var pool = " "
 
@@ -35,7 +41,7 @@ function generatePassword() {
   if (letter && Lower) {
     pool = pool + Lower
     console.log(pool)
-  } 
+  }
   // add uppercase alphabet to pool array
   if (letter && Upper) {
     pool = pool + Upper
@@ -48,7 +54,7 @@ function generatePassword() {
   if (special) {
     pool = pool + special
   }
-console.log(Chosenlength)
+  console.log(Chosenlength)
   for (i = 0; i <= Chosenlength; i++) {
     result = result + pool[Math.floor(Math.random() * pool.length)]
     console.log(result)
